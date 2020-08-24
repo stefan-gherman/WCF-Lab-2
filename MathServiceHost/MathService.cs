@@ -8,25 +8,38 @@ using System.Threading.Tasks;
 namespace MathServiceHost
 {
     public class MathService : MathTypes.IMath
+
     {
-        public MathResponse Add(MathRequest req)
+        public MathResponseMessage Add(MathRequestMessage req)
         {
-            return new MathResponse(req.x + req.y);
+            Console.WriteLine("Custom header value {0}", req.CustomHeader);
+            MathTypes.MathResponseMessage resp = new MathTypes.MathResponseMessage();
+            resp.response = new MathResponse(req.request.x + req.request.y);
+            return resp;
         }
 
-        public MathResponse Divide(MathRequest req)
+        public MathResponseMessage Divide(MathRequestMessage req)
         {
-            return new MathResponse(req.x / req.y);
+            Console.WriteLine("Custom header value {0}", req.CustomHeader);
+            MathTypes.MathResponseMessage resp = new MathTypes.MathResponseMessage();
+            resp.response = new MathResponse(req.request.x / req.request.y);
+            return resp;
         }
 
-        public MathResponse Multiply(MathRequest req)
+        public MathResponseMessage Multiply(MathRequestMessage req)
         {
-            return new MathResponse(req.x * req.y);
+            Console.WriteLine("Custom header value {0}", req.CustomHeader);
+            MathTypes.MathResponseMessage resp = new MathTypes.MathResponseMessage();
+            resp.response = new MathResponse(req.request.x * req.request.y);
+            return resp;
         }
 
-        public MathResponse Subtract(MathRequest req)
+        public MathResponseMessage Subtract(MathRequestMessage req)
         {
-            return new MathResponse(req.x - req.y);
+            Console.WriteLine("Custom header value {0}", req.CustomHeader);
+            MathTypes.MathResponseMessage resp = new MathTypes.MathResponseMessage();
+            resp.response = new MathResponse(req.request.x - req.request.y);
+            return resp;
         }
     }
 }

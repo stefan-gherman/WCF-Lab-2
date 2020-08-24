@@ -37,19 +37,36 @@ namespace MathTypes
         }
     }
 
+    [MessageContract]
+    public class MathRequestMessage
+    {
+        [MessageHeader]
+        public int CustomHeader;
+
+        [MessageBodyMember]
+        public MathRequest request;
+    }
+
+    [MessageContract]
+    public class MathResponseMessage
+    {
+        [MessageBodyMember]
+        public MathResponse response;
+    }
+
     [ServiceContract(Namespace = "http://example.org/math/contracts")]
     public interface IMath
     {
         [OperationContract]
-        MathResponse Add(MathRequest req);
+        MathResponseMessage Add(MathRequestMessage req);
 
         [OperationContract]
-        MathResponse Subtract(MathRequest req);
+        MathResponseMessage Subtract(MathRequestMessage req);
 
         [OperationContract]
-        MathResponse Multiply(MathRequest req);
+        MathResponseMessage Multiply(MathRequestMessage req);
 
         [OperationContract]
-        MathResponse Divide(MathRequest req);
+        MathResponseMessage Divide(MathRequestMessage req);
     }
 }
