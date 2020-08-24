@@ -13,12 +13,13 @@ namespace MathServiceHost
     {
         private static void Main(string[] args)
         {
-            ServiceHost host = new ServiceHost(typeof(MathService),
-                new Uri(ConfigurationManager.AppSettings["baseAddress"]));
+            ServiceHost host = new ServiceHost(
+typeof(MathService),
+new Uri(ConfigurationManager.AppSettings["baseAddress"]));
             host.AddServiceEndpoint(
-                        typeof(MathTypes.IMath),
-                        new BasicHttpBinding(),
-                        "math");
+            typeof(MathTypes.IMath),
+            new BasicHttpBinding(),
+            "math");
             host.Open();
             Console.WriteLine(
             "MathService is listening on the following...");

@@ -1,25 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MathTypes
 {
-    [ServiceContract]
+    [DataContract(Namespace = "http://example.org/math/types")]
+    public class MathRequest
+    {
+        [DataMember]
+        public double x;
+
+        [DataMember]
+        public double y;
+
+        public MathRequest(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    [DataContract(Namespace = "http://example.org/math/types")]
+    public class MathResponse
+    {
+        [DataMember]
+        public double result;
+
+        public MathResponse(double result)
+
+        {
+            this.result = result;
+        }
+    }
+
+    [ServiceContract(Namespace = "http://example.org/math/contracts")]
     public interface IMath
     {
         [OperationContract]
-        double Add(double x, double y);
+        MathResponse Add(MathRequest req);
 
         [OperationContract]
-        double Subtract(double x, double y);
+        MathResponse Subtract(MathRequest req);
 
         [OperationContract]
-        double Multiply(double x, double y);
+        MathResponse Multiply(MathRequest req);
 
         [OperationContract]
-        double Divide(double x, double y);
+        MathResponse Divide(MathRequest req);
     }
 }

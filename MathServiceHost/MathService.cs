@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +9,24 @@ namespace MathServiceHost
 {
     public class MathService : MathTypes.IMath
     {
-        public double Add(double x, double y)
+        public MathResponse Add(MathRequest req)
         {
-            return x + y;
+            return new MathResponse(req.x + req.y);
         }
 
-        public double Divide(double x, double y)
+        public MathResponse Divide(MathRequest req)
         {
-            return x / y;
+            return new MathResponse(req.x / req.y);
         }
 
-        public double Multiply(double x, double y)
+        public MathResponse Multiply(MathRequest req)
         {
-            return x * y;
+            return new MathResponse(req.x * req.y);
         }
 
-        public double Subtract(double x, double y)
+        public MathResponse Subtract(MathRequest req)
         {
-            return x - y;
+            return new MathResponse(req.x - req.y);
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathTypes", "MathTypes\Math
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathServiceHost", "MathServiceHost\MathServiceHost.csproj", "{142F8DD3-888D-4E70-A5B6-EB2B8BD69120}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathClient", "MathClient\MathClient.csproj", "{A57C771C-717B-4D31-8B81-53B8AF8CE371}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{142F8DD3-888D-4E70-A5B6-EB2B8BD69120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{142F8DD3-888D-4E70-A5B6-EB2B8BD69120}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{142F8DD3-888D-4E70-A5B6-EB2B8BD69120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57C771C-717B-4D31-8B81-53B8AF8CE371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57C771C-717B-4D31-8B81-53B8AF8CE371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57C771C-717B-4D31-8B81-53B8AF8CE371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57C771C-717B-4D31-8B81-53B8AF8CE371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
