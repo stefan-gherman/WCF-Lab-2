@@ -12,7 +12,9 @@ namespace MathClient
     {
         private static void Main(string[] args)
         {
-            MathTypes.MathRequest req = new MathTypes.MathRequest(23, 44);
+            MathTypes.MathRequest req = new MathTypes.MathRequest();
+            req.x = 23;
+            req.y = 44;
             MathTypes.MathRequestMessage mreq = new MathTypes.MathRequestMessage();
             mreq.request = req;
             mreq.CustomHeader = 8;
@@ -25,7 +27,7 @@ namespace MathClient
             CustomBinding binding = new CustomBinding();
             binding.Elements.Add(new TextMessageEncodingBindingElement());
             binding.Elements.Add(new TcpTransportBindingElement());
-            MathTypes.IMath channel = new ChannelFactory<MathTypes.IMath>("bp").CreateChannel();
+            MathTypes.IMath channel = new ChannelFactory<MathTypes.IMath>("CustomBinding_IMath").CreateChannel();
             response = channel.Add(mreq);
             Console.WriteLine("Call via BasicProfileBinding: {0}",
             response.response.result);
