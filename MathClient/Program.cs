@@ -25,9 +25,7 @@ namespace MathClient
             CustomBinding binding = new CustomBinding();
             binding.Elements.Add(new TextMessageEncodingBindingElement());
             binding.Elements.Add(new TcpTransportBindingElement());
-            MathTypes.IMath channel = new ChannelFactory<MathTypes.IMath>(
-                binding,
-                new EndpointAddress("net.tcp://localhost:8081/math")).CreateChannel();
+            MathTypes.IMath channel = new ChannelFactory<MathTypes.IMath>("bp").CreateChannel();
             response = channel.Add(mreq);
             Console.WriteLine("Call via BasicProfileBinding: {0}",
             response.response.result);
